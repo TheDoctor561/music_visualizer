@@ -1,10 +1,11 @@
 var cols, rows;
+//Controls the density of the triangles 
 var scl = 60;
-var w = 2200;
-var h = 1100;
+var w = window.innerWidth*1.26;
+var h = window.innerHeight;
 var song;
 var amp;
-
+ 
 let img, sun_img, stars;
 
 var flying = 0;
@@ -12,14 +13,16 @@ var flying = 0;
 var terrain = [];
 
 function setup() {
-  img = loadImage('background.jpg');
-  sun_img = loadImage('sun.png');
-  stars = loadImage('stars.png'); 
+  img = loadImage('images/background.jpg');
+  sun_img = loadImage('images/sun.png');
+  stars = loadImage('images/stars.png'); 
   dim = width / 2;
-  song = loadSound('beyond.mp3');
+  song = loadSound('uploads/curr.mp3');
   createCanvas(windowWidth, windowHeight, WEBGL);
   cols = w / scl;
-  rows = h / scl;
+  rows = cols/2 + 1;
+
+  
 
 
 
@@ -90,7 +93,7 @@ function draw() {
   var yoff = flying;
   for (var y = 0; y < rows; y++) {
     var xoff = 0;
-    for (var x = 0; x < cols; x++) {
+    for (var x = y; x < cols - y; x++) {
 
       terrain[x][y] = map(noise(xoff, yoff), 0, 1, -100, 100);
       xoff += 0.2;
@@ -100,7 +103,8 @@ function draw() {
 
 
   // Adjust height of camera 
-  translate(0, 140);
+  // Original value 140
+  translate(0, windowHeight/8);
   // Adjust rotation and position of rectangle 
   rotateX(PI / 2);
 
@@ -108,15 +112,17 @@ function draw() {
   noFill();
 
   // Adjust height of the floor
-  translate(-w/2 + 10, -130);
-  stroke(242, 0, 255);
+  translate(-w/2 , -h/5);
+  stroke(64, 252, 255);
   for (var y = 0; y < rows - 1; y++) {
     beginShape(TRIANGLE_STRIP);
-    for (var x = 0; x < cols; x++) {
+    
+    for (var x = y; x < cols - y; x++) {
 
       vertex(x * scl, y * scl, terrain[x][y] * size);
       vertex(x * scl, (y + 1) * scl, terrain[x][y] * size);
     }
+    
     endShape();
 
   }
