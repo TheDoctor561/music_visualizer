@@ -1,29 +1,17 @@
 <!DOCTYPE html>
 <html>
 
-<!--
-<style>
-  div {
-    height: 1600px;
-    background-image: linear-gradient(#000099 30%, #ff00ff 55%, #000000 60%)
-  }
-</style>
-
-
-
-
--->
-
 <head>
   <meta charset="UTF-8">
-  <title>Space Trip</title>
+  <title>Digital Ocean</title>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.min.js"></script>
   <link rel="stylesheet" href="space_style.css">
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/addons/p5.sound.min.js"></script>
   
-  <script src="space_trip_save.js"></script>
-
+    
+ <script src="digital_ocean.js"></script> -
 </head>
+
 
 
 <body>

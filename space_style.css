@@ -1,3 +1,5 @@
+/*
+
 html,body
 {
     width: 100%;
@@ -6,9 +8,13 @@ html,body
     padding: 0px;
     overflow-x: hidden; 
 }
-/*
+
 body {
     overflow-y: hidden; /* Hide vertical scrollbar 
     overflow-x: hidden; /* Hide horizontal scrollbar 
 }
 */
+
+body {
+    background-image: url("images/backgroundfull_1.jpg");
+  }
